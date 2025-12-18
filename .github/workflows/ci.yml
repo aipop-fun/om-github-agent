@@ -1,0 +1,33 @@
+name: CI for OmO GitHub Agent
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build with TypeScript
+      run: npm run build
+
+    # Add linting step here if ESLint or other linters are configured
+    # - name: Lint
+    #   run: npm run lint
+
+    # Add testing step here if tests are implemented
+    # - name: Test
+    #   run: npm test
