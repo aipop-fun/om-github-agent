@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --config jest.config.js",
-    "start": "ts-node index.ts",
-    "build": "tsc"
+    "test": "bun run jest --config jest.config.js",
+    "start": "bun run ts-node index.ts",
+    "build": "bun run tsc"
   },
   "keywords": [],
   "author": "",
